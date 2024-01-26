@@ -6,7 +6,21 @@ authors = ["Billy Weisberg <billy@energyapps.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
+jupyter = "^1.0.0"
+requests = "^2.31.0"
+pyarrow = "^14.0.2"
+tqdm = "^4.66.1"
+plotly = "^5.18.0"
+numpy = "^1.26.3"
+scikit-learn = "^1.4.0"
+xgboost = "^2.0.3"
+lightgbm = "^4.2.0"
+optuna = "^3.5.0"
+python-dotenv = "^1.0.0"
+pandas = "<2.1.0"
+hsfs = {version = "^3.4.6", python = "3.11"}
+hopsworks = {version = "^3.4.3", python = "3.11"}
 
 
 [build-system]
