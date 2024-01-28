@@ -16,6 +16,7 @@ def get_hopsworks_project() -> hopsworks.project.Project:
         api_key_value=config.HOPSWORKS_API_KEY
     )
 
+
 def get_model_predictions(model, features: pd.DataFrame) -> pd.DataFrame:
     """"""
     # past_rides_columns = [c for c in features.columns if c.startswith('rides_')]

@@ -21,6 +21,8 @@ python-dotenv = "^1.0.0"
 pandas = "<2.1.0"
 hsfs = {version = "^3.4.6", python = "3.11"}
 hopsworks = {version = "^3.4.3", python = "3.11"}
+streamlit = "^1.30.0"
+geopandas = "^0.14.2"
 
 
 [build-system]
