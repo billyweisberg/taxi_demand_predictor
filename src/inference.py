@@ -70,7 +70,7 @@ def load_batch_of_features_from_store(
     # validate we are not missing data in the feature store
     location_ids = ts_data['pickup_location_id'].unique()
     assert len(ts_data) == config.N_FEATURES * len(location_ids), \
-        "Time-series data is not complete. Make sure your feature pipeline is up and runnning."
+       "Time-series data is not complete. Make sure your feature pipeline is up and runnning."
 
     # transpose time-series data as a feature vector, for each `pickup_location_id`
     x = np.ndarray(shape=(len(location_ids), n_features), dtype=np.float32)
