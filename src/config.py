@@ -19,7 +19,7 @@ except:
 # FEATURE_GROUP_VERSION = 4
 FEATURE_GROUP_METADATA = FeatureGroupConfig(
     name='time_series_hourly_feature_group',
-    version=4,
+    version=5,
     description='Feature group with hourly time-series data of historical taxi rides',
     primary_key=['pickup_location_id', 'pickup_ts'],
     event_time='pickup_ts',
@@ -31,19 +31,19 @@ FEATURE_GROUP_METADATA = FeatureGroupConfig(
 # FEATURE_VIEW_VERSION = 3
 FEATURE_VIEW_METADATA = FeatureViewConfig(
     name='time_series_hourly_feature_view',
-    version=3,
+    version=5,
     feature_group=FEATURE_GROUP_METADATA,
 )
 
 MODEL_NAME = "taxi_demand_predictor"
-MODEL_VERSION = 2
+MODEL_VERSION = 5
 
 # added for monitoring purposes
 # TODO remove FEATURE_GROUP_MODEL_PREDICTIONS and use FEATURE_GROUP_PREDICTIONS_METADATA instead
 # FEATURE_GROUP_MODEL_PREDICTIONS = 'model_predictions_feature_group'
 FEATURE_GROUP_PREDICTIONS_METADATA = FeatureGroupConfig(
     name='model_predictions_feature_group',
-    version=4,
+    version=5,
     description="Predictions generate by our production model",
     primary_key = ['pickup_location_id', 'pickup_ts'],
     event_time='pickup_ts',
@@ -53,12 +53,12 @@ FEATURE_GROUP_PREDICTIONS_METADATA = FeatureGroupConfig(
 # FEATURE_VIEW_MODEL_PREDICTIONS = 'model_predictions_feature_view'
 FEATURE_VIEW_PREDICTIONS_METADATA = FeatureViewConfig(
     name='model_predictions_feature_view',
-    version=4,
+    version=5,
     feature_group=FEATURE_GROUP_PREDICTIONS_METADATA,
 )
 
 MONITORING_FV_NAME = 'monitoring_feature_view'
-MONITORING_FV_VERSION = 4
+MONITORING_FV_VERSION = 5
 
 # number of historical values our model needs to generate predictions
 N_FEATURES = 24 * 28
