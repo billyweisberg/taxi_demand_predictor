@@ -35,7 +35,8 @@ FEATURE_VIEW_METADATA = FeatureViewConfig(
     feature_group=FEATURE_GROUP_METADATA,
 )
 
-MODEL_NAME = "taxi_demand_predictor"
+# MODEL_NAME = "taxi_demand_predictor"
+MODEL_NAME = "taxi_demand_predictor_next_hour"
 MODEL_VERSION = 3
 
 # added for monitoring purposes
@@ -43,9 +44,10 @@ MODEL_VERSION = 3
 FEATURE_GROUP_MODEL_PREDICTIONS = 'model_predictions_feature_group'
 FEATURE_GROUP_PREDICTIONS_METADATA = FeatureGroupConfig(
     name='model_predictions_feature_group',
-    version=5,
+    version=1,
     description="Predictions generate by our production model",
-    primary_key = ['pickup_location_id', 'pickup_ts'],
+    # primary_key = ['pickup_location_id', 'pickup_ts'],
+    primary_key = ['pickup_location_id'],
     event_time='pickup_ts',
 )
 
