@@ -16,7 +16,7 @@ except:
 
 # TODO: remove FEATURE_GROUP_NAME and FEATURE_GROUP_VERSION, and use FEATURE_GROUP_METADATA instead
 FEATURE_GROUP_NAME = 'time_series_hourly_feature_group'
-FEATURE_GROUP_VERSION = 5
+FEATURE_GROUP_VERSION = 6
 FEATURE_GROUP_METADATA = FeatureGroupConfig(
     name='time_series_hourly_feature_group',
     version=5,
@@ -28,7 +28,7 @@ FEATURE_GROUP_METADATA = FeatureGroupConfig(
 
 # TODO: remove FEATURE_VIEW_NAME and FEATURE_VIEW_VERSION, and use FEATURE_VIEW_METADATA instead
 FEATURE_VIEW_NAME = 'time_series_hourly_feature_view'
-FEATURE_VIEW_VERSION = 5
+FEATURE_VIEW_VERSION = 6
 FEATURE_VIEW_METADATA = FeatureViewConfig(
     name='time_series_hourly_feature_view',
     version=5,

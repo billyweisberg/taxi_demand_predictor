@@ -1,10 +1,11 @@
 from typing import Optional, List
 from dataclasses import dataclass
 
+import os
 import hsfs
 import hopsworks
 
-import src.config as config
+# import src.config as config
 from src.logger import get_logger
 
 logger = get_logger()
@@ -31,8 +32,8 @@ def get_feature_store() -> hsfs.feature_store.FeatureStore:
         hsfs.feature_store.FeatureStore: pointer to the feature store
     """
     project = hopsworks.login(
-        project=config.HOPSWORKS_PROJECT_NAME,
-        api_key_value=config.HOPSWORKS_API_KEY
+        project='taxi_demand_bw',
+        api_key_value=os.environ['HOPSWORKS_API_KEY']
     )
     return project.get_feature_store()
 
