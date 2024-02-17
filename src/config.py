@@ -37,7 +37,7 @@ FEATURE_VIEW_METADATA = FeatureViewConfig(
 
 # MODEL_NAME = "taxi_demand_predictor"
 MODEL_NAME = "taxi_demand_predictor_next_hour"
-MODEL_VERSION = 7
+MODEL_VERSION = 4
 
 # added for monitoring purposes
 # TODO remove FEATURE_GROUP_MODEL_PREDICTIONS and use FEATURE_GROUP_PREDICTIONS_METADATA instead
