@@ -16,7 +16,6 @@ def get_hopsworks_project() -> hopsworks.project.Project:
         api_key_value=config.HOPSWORKS_API_KEY
     )
 
-
 def get_model_predictions(model, features: pd.DataFrame) -> pd.DataFrame:
     """"""
     # past_rides_columns = [c for c in features.columns if c.startswith('rides_')]
@@ -43,7 +42,7 @@ def load_batch_of_features_from_store(
             - `pickup_hour`
             - `rides`
             - `pickup_location_id`
-            - `pickup_ts`
+            - `pickpu_ts`
     """
     n_features = config.N_FEATURES
 
@@ -60,17 +59,19 @@ def load_batch_of_features_from_store(
     )
     
     # filter data to the time period we are interested in
-    # pickup_ts_from = int(fetch_data_from.timestamp() * 1000)
-    # pickup_ts_to = int(fetch_data_to.timestamp() * 1000)
-    # ts_data = ts_data[ts_data.pickup_ts.between(pickup_ts_from, pickup_ts_to)]
+    pickup_ts_from = int(fetch_data_from.timestamp()) # * 1000
+    pickup_ts_to = int(fetch_data_to.timestamp()) # * 1000
+    ts_data = ts_data[ts_data.pickup_ts.between(pickup_ts_from, pickup_ts_to)]
 
     # sort data by location and time
     ts_data.sort_values(by=['pickup_location_id', 'pickup_hour'], inplace=True)
+    ts_data
 
     # validate we are not missing data in the feature store
     location_ids = ts_data['pickup_location_id'].unique()
+
     assert len(ts_data) == config.N_FEATURES * len(location_ids), \
-       "Time-series data is not complete. Make sure your feature pipeline is up and runnning."
+        "Time-series data is not complete. Make sure your feature pipeline is up and runnning."
 
     # transpose time-series data as a feature vector, for each `pickup_location_id`
     x = np.ndarray(shape=(len(location_ids), n_features), dtype=np.float32)
