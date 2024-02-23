@@ -41,8 +41,10 @@ def run(date: datetime):
 
     # add new column with the timestamp in Unix seconds
     logger.info('Adding column `pickup_ts` with Unix seconds...')
-    ts_data['pickup_hour'] = pd.to_datetime(ts_data['pickup_hour'], utc=True)    
-    ts_data['pickup_ts'] = ts_data['pickup_hour'].astype(int) // 10**6
+    ts_data['pickup_hour'] = pd.to_datetime(ts_data['pickup_hour'], utc=True)
+
+    # ts_data['pickup_ts'] = ts_data['pickup_hour'].astype(int) // 10**6
+    ts_data['pickup_ts'] = ts_data['pickup_hour'].view('int64') // 10**9
 
     # get a pointer to the feature group we wanna write to
     logger.info('Getting pointer to the feature group we wanna save data to')
