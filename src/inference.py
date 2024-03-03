@@ -59,9 +59,9 @@ def load_batch_of_features_from_store(
     )
     
     # filter data to the time period we are interested in
-    # pickup_ts_from = int(fetch_data_from.timestamp()) # * 1000
-    # pickup_ts_to = int(fetch_data_to.timestamp()) # * 1000
-    # ts_data = ts_data[ts_data.pickup_ts.between(pickup_ts_from, pickup_ts_to)]
+    pickup_ts_from = int(fetch_data_from.timestamp()) # * 1000
+    pickup_ts_to = int(fetch_data_to.timestamp()) # * 1000
+    ts_data = ts_data[ts_data.pickup_ts.between(pickup_ts_from, pickup_ts_to)]
 
     # sort data by location and time
     ts_data.sort_values(by=['pickup_location_id', 'pickup_hour'], inplace=True)
@@ -144,6 +144,8 @@ def load_predictions_from_store(
         start_time=from_pickup_hour - timedelta(days=1),
         end_time=to_pickup_hour + timedelta(days=1)
     )
+
+    predictions
     
     # make sure datetimes are UTC aware
     predictions['pickup_hour'] = pd.to_datetime(predictions['pickup_hour'], utc=True)
